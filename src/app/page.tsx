@@ -46,23 +46,8 @@ export default function Home() {
           <FinancialList title="Liabilities" items={liabilities} />
         </div>
 
-        <h2>Assets</h2>
-        <ul className="mb-8">
-          {assets.map((asset) => (
-            <li key={asset.id}>
-              {asset.name}:  €{asset.value}
-            </li>
-          ))}
-        </ul>
-        <h2>Liabilities</h2>
-        <ul>
-          {liabilities.map((item) => (
-            <li key={item.id}>
-              {item.name} €{item.value}
-            </li>
-          ))}
-        </ul>
-        <AddAssetForm setAssets={setAssets} />
+        
+        <AddAssetForm  />
         <AddLiabilityForm setLiabilities={setLiabilities}/>
       </main>
 
