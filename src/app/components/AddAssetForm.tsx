@@ -1,11 +1,12 @@
 import { FinancialItem } from "../types"
+import { Dispatch, SetStateAction } from "react"
 
 type AddAssetFormProps = {
-    addAsset: (item: FinancialItem) => void;
+    setAssets: Dispatch<SetStateAction<FinancialItem[]>>;
 }
 
 
-export default function AddAssetForm({addAsset}: AddAssetFormProps){
+export default function AddAssetForm({setAssets}: AddAssetFormProps){
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
@@ -18,7 +19,7 @@ export default function AddAssetForm({addAsset}: AddAssetFormProps){
             value: Number(formData.get("assetTypeVal")),
         };
 
-        addAsset(newAsset)
+        setAssets(prevAssets => [...prevAssets, newAsset]);
         form.reset()
     }
 

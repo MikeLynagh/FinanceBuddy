@@ -1,11 +1,12 @@
 import { FinancialItem } from "../types"
+import { Dispatch, SetStateAction } from "react"
 
 type AddLiabilityFormProps = {
-    addLiability: (item: FinancialItem) => void;
+    setLiabilities: Dispatch<SetStateAction<FinancialItem[]>>;
 }
 
 
-export default function AddLiabilityForm({addLiability}: AddLiabilityFormProps){
+export default function AddLiabilityForm({setLiabilities}: AddLiabilityFormProps){
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
@@ -17,7 +18,7 @@ export default function AddLiabilityForm({addLiability}: AddLiabilityFormProps){
             value: Number(formData.get("liabilityTypeVal")),
         };
         
-        addLiability(newLiability)
+        setLiabilities(prevLiabilities => [...prevLiabilities, newLiability])
         form.reset()
     }
     return(

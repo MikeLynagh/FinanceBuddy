@@ -47,7 +47,7 @@ export default function Home() {
         </div>
 
         
-        <AddAssetForm  />
+        <AddAssetForm setAssets={setAssets} />
         <AddLiabilityForm setLiabilities={setLiabilities}/>
       </main>
 
