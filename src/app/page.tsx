@@ -6,6 +6,7 @@ import AddLiabilityForm from "./components/AddLiabilityForm";
 import { FinancialItem } from "./types";
 import { FinancialSummary } from "./components/FinancialSummary";
 import FinancialList from "./components/FinancialList";
+import Link from "next/link";
 
 
 
@@ -39,6 +40,9 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen p-8 sm:p-20">
       <main className="max-w-3xl">
         <h1 className="font-extrabold text-4xl leading-none tracking-tight">Net worth tracker</h1>
+        <Link href="/analytics" className="text-blue-600 underline mb-4 block">
+        Go to analytics 
+        </Link>
         <FinancialSummary assets={assets} liabilities={liabilities}/>
         <br></br>
         <div>
